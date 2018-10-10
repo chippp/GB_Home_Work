@@ -7,8 +7,13 @@
 ```
 path\to\python\dir\python -m venv d:\test\.venv
 ```
-* выполнить git clone (либо сохранить файлы GB_Home_Work.py и requirements.txt вручную)
-* Установить зависимости (предварительно активировав venv)
+* выполнить git clone (либо сохранить файлы GB_Home_Work.py и requirements.txt вручную в каталг проекта)
+* активировать venv (через cmd)
+```
+cd d:\test\.venv\scripts
+activate
+```
+* Установить зависимости 
 ```
 pip install -r requirements.txt
 ```
