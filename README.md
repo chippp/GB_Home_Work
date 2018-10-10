@@ -18,6 +18,10 @@ activate
 pip install -r requirements.txt
 ```
 * «апустить GB_Home_Work.py любым удобным способом
+вариант:
+```
+python ../../GB_Home_Work.py
+```
 
 Ѕот обрабатывает:
 * текстовые сообщени€ согласно заданию
