@@ -65,7 +65,7 @@ def getsticker(message):
         img.save(f'{sfile}.png', 'png')
         # send image
         imageforsend = open(f'{sfile}.png', 'rb')
-        bot.send_document(message.chat.id, imageforsend)
+        bot.send_document(message.chat.id, imageforsend, caption=f'Emoji:{message.sticker.emoji}', reply_to_message_id=message.message_id)
         imageforsend.close()
         # remove files
         os.remove(f'{sfile}.webp')
