@@ -24,30 +24,18 @@ if not os.path.exists(tempdir):
     os.makedirs(tempdir)
 
 
-def Updateygyonmessage():
-    return randint(2, 10)
-
-
-ygyonmessage = Updateygyonmessage()
-
-
-def SendYGY(chat_id):
-    bot.send_message(chat_id, 'УГУ УГУ')
+msgs_accept = {'Counter': 0, 'accept_on': randint(2, 10)}
 
 
 @bot.message_handler(content_types=['text'])
 def answer(message):
-    if not hasattr(answer, 'count'):
-        answer.count = 1
-
     if regex.search(r'(?i).*?(Подтверди){e<=2}.?$', message.text) is not None:
         bot.reply_to(message, 'Подтверждаю!')
     else:
-        global ygyonmessage
-        answer.count += 1
-        if ygyonmessage == answer.count:
-            answer.count = 0
-            ygyonmessage = Updateygyonmessage()
+        msgs_accept['Counter'] += 1
+        if msgs_accept['accept_on'] == msgs_accept['Counter']:
+            msgs_accept['Counter'] = 0
+            msgs_accept['accept_on'] = randint(2, 10)
             bot.send_message(message.chat.id, 'УГУ УГУ')
 
 
