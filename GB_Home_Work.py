@@ -24,7 +24,7 @@ if not os.path.exists(tempdir):
     os.makedirs(tempdir)
 
 
-msgs_accept = {'Counter': 0, 'accept_on': randint(2, 10)}
+accept_on_message = {'Msg_Counter': 0, 'accept_on': randint(2, 10)}
 
 
 @bot.message_handler(content_types=['text'])
@@ -32,10 +32,10 @@ def answer(message):
     if regex.search(r'(?i).*?(Подтверди){e<=2}.?$', message.text) is not None:
         bot.reply_to(message, 'Подтверждаю!')
     else:
-        msgs_accept['Counter'] += 1
-        if msgs_accept['accept_on'] == msgs_accept['Counter']:
-            msgs_accept['Counter'] = 0
-            msgs_accept['accept_on'] = randint(2, 10)
+        accept_on_message['Msg_Counter'] += 1
+        if accept_on_message['accept_on'] == accept_on_message['Msg_Counter']:
+            accept_on_message['Msg_Counter'] = 0
+            accept_on_message['accept_on'] = randint(2, 10)
             bot.send_message(message.chat.id, 'УГУ УГУ')
 
 
